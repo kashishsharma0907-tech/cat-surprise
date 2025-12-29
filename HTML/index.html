@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cute Cat Surprise</title>
+
+<!-- Cute Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    background: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+#container {
+    text-align: center;
+}
+
+img {
+    width: 220px;
+    cursor: pointer;
+}
+
+button {
+    padding: 10px 28px;
+    margin: 10px;
+    font-size: 16px;
+    border-radius: 20px;
+    border: none;
+    background: #ffb6c1;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #ff9eb5;
+}
+
+.hidden {
+    display: none;
+}
+
+.enter {
+    animation: moveCat 1s ease forwards;
+}
+
+@keyframes moveCat {
+    from {
+        transform: translate(-300px, -300px);
+    }
+    to {
+        transform: translate(0, 0);
+    }
+}
+
+.fade {
+    animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.bold {
+    font-size: 26px;
+    font-weight: 600;
+    font-family: 'Pacifico', cursive;
+}
+
+.pink {
+    color: lightpink;
+    font-size: 22px;
+    font-family: 'Pacifico', cursive;
+}
+</style>
+</head>
+
+<body>
+
+<div id="container">
+
+<!-- STEP 1 -->
+<div id="step1" class="fade">
+    <img src="cat_enter.png.jpeg" class="enter">
+    <p class="bold">Hey! I made something for you 🥺<br>Will you see it?</p>
+    <button onclick="showNo()">No</button>
+    <button onclick="showYes()">Yes</button>
+</div>
+
+<!-- STEP 2 -->
+<div id="step2" class="hidden fade">
+    <img src="cat_gun.png.jpeg">
+    <p class="bold">HOW DARE YOUUU!</p>
+    <button onclick="goBack()">Back</button>
+</div>
+
+<!-- STEP 4 -->
+<div id="step4" class="hidden fade">
+    <img src="cat_shy.png.jpeg">
+    <p class="bold">Hehehe! Click below for the surprise !!!</p>
+    <button onclick="showGift()">Next</button>
+</div>
+
+<!-- STEP 5 -->
+<div id="step5" class="hidden fade">
+    <img src="cat_gift.png.jpeg" onclick="showCamera()">
+    <p class="pink">Happy New Year my kuchupuchuuuu!!!!</p>
+    <p style="font-family:'Pacifico', cursive;">Click on the gift box 🎁</p>
+</div>
+
+<!-- STEP 7 -->
+<div id="step7" class="hidden fade">
+    <img src="cat_camera.png.jpeg" onclick="showPhoto()">
+    <p class="bold">SMILEEEE 😄</p>
+    <p style="font-family:'Pacifico', cursive;">Click on camera to reveal photo</p>
+</div>
+
+<!-- STEP 8 (FINAL) -->
+<div id="step8" class="hidden fade">
+    <img src="couple.jpg.jpeg" style="width:280px;" onclick="goBack()">
+</div>
+
+</div>
+
+<script>
+function hideAll() {
+    document.querySelectorAll('#container > div').forEach(div => {
+        div.classList.add('hidden');
+    });
+}
+
+function showNo() {
+    hideAll();
+    document.getElementById('step2').classList.remove('hidden');
+}
+
+function goBack() {
+    hideAll();
+    document.getElementById('step1').classList.remove('hidden');
+}
+
+function showYes() {
+    hideAll();
+    document.getElementById('step4').classList.remove('hidden');
+}
+
+function showGift() {
+    hideAll();
+    document.getElementById('step5').classList.remove('hidden');
+}
+
+function showCamera() {
+    hideAll();
+    document.getElementById('step7').classList.remove('hidden');
+}
+
+function showPhoto() {
+    hideAll();
+    document.getElementById('step8').classList.remove('hidden');
+}
+</script>
+
+</body>
+</html>
